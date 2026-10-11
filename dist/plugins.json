@@ -15,7 +15,7 @@
       "Anime",
       "AnimeMovie"
     ],
-    "url": "https://github.com/mussolene/nuvio-animevost-provider/releases/download/v1.0.2/AnimeVostNuvio.cs3",
+    "url": "https://raw.githubusercontent.com/mussolene/nuvio-animevost-provider/main/dist/AnimeVostNuvio.cs3?version=3",
     "fileSize": 17720,
     "repositoryUrl": "https://raw.githubusercontent.com/mussolene/nuvio-animevost-provider/main/dist/plugins.json"
   }
