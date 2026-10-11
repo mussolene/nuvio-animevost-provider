@@ -15,7 +15,7 @@ class AnimeVostProvider : MainAPI() {
     override val supportedTypes = setOf(TvType.Anime, TvType.AnimeMovie)
 
     private val requestHeaders = mapOf(
-        "User-Agent" to "Mozilla/5.0 (Linux; Android 10; Android TV) " +
+        "User-Agent" to "Mozilla/5.0 (Windows NT 10.0; Win64; x64) " +
             "AppleWebKit/537.36 Chrome/124.0.0.0 Safari/537.36",
         "Accept-Language" to "ru-RU,ru;q=0.9,en;q=0.7"
     )
