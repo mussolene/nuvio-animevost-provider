@@ -1,0 +1,22 @@
+[
+  {
+    "name": "AnimeVost для Nuvio",
+    "internalName": "AnimeVostNuvio",
+    "description": "AnimeVost: серии и прямые потоки до 1080p из второго проигрывателя",
+    "version": 1,
+    "apiVersion": 1,
+    "status": 1,
+    "authors": [
+      "mussolene",
+      "yuzono",
+      "unixway"
+    ],
+    "tvTypes": [
+      "Anime",
+      "AnimeMovie"
+    ],
+    "url": "https://raw.githubusercontent.com/mussolene/nuvio-animevost-provider/main/dist/AnimeVostNuvio.cs3",
+    "fileSize": 19350,
+    "repositoryUrl": "https://raw.githubusercontent.com/mussolene/nuvio-animevost-provider/main/dist/plugins.json"
+  }
+]
