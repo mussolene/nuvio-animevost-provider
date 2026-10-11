@@ -1,0 +1,7 @@
+{
+  "name": "AnimeVost для Nuvio",
+  "description": "Аниме AnimeVost с сериями и прямыми потоками до 1080p",
+  "pluginLists": [
+    "plugins.json?channel=stable"
+  ]
+}
