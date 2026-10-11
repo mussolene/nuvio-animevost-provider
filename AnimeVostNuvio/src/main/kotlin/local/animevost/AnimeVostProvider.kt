@@ -2,8 +2,6 @@ package local.animevost
 
 import com.fasterxml.jackson.annotation.JsonProperty
 import com.lagradost.cloudstream3.*
-import com.lagradost.cloudstream3.utils.AppUtils.toJson
-import com.lagradost.cloudstream3.utils.AppUtils.tryParseJson
 import com.lagradost.cloudstream3.utils.ExtractorLink
 import com.lagradost.cloudstream3.utils.ExtractorLinkType
 import com.lagradost.cloudstream3.utils.newExtractorLink
@@ -71,7 +69,7 @@ class AnimeVostProvider : MainAPI() {
         val description = content.selectFirst("span[itemprop=description]")?.text()?.trim()
         val year = metadataValue(content, "Год выхода")?.toIntOrNull()
         val episodes = AnimeVostParser.episodes(document.html()).mapIndexed { index, item ->
-            newEpisode(EpisodeData(item.id, url).toJson()) {
+            newEpisode(mapper.writeValueAsString(EpisodeData(item.id, url))) {
                 name = item.name
                 season = 1
                 episode = episodeNumber(item.name) ?: index + 1
@@ -100,7 +98,7 @@ class AnimeVostProvider : MainAPI() {
         subtitleCallback: (SubtitleFile) -> Unit,
         callback: (ExtractorLink) -> Unit
     ): Boolean {
-        val episode = tryParseJson<EpisodeData>(data) ?: return false
+        val episode = mapper.readValue(data, EpisodeData::class.java) ?: return false
         val playerUrl = "$mainUrl/frame5.php?play=${episode.id}&old=1"
         val html = app.get(
             playerUrl,
