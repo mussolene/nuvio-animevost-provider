@@ -1,10 +1,10 @@
 package local.animevost
 
 internal object AnimeVostParser {
-    private val episodeDataRegex = Regex("""var\s+data\s*=\s*(\{.*?})\s*;""", RegexOption.DOT_MATCHES_ALL)
+    private val episodeDataRegex = Regex("""var\s+data\s*=\s*(\{.*?\})\s*;""", RegexOption.DOT_MATCHES_ALL)
     private val episodeRegex = Regex("""["']([^"']+)["']\s*:\s*["'](\d+)["']""")
     private val fileRegex = Regex("""["']file["']\s*:\s*["']([^"']+)["']""")
-    private val qualityRegex = Regex("""\[([^]]+)](.+?)(?=,\[|$)""")
+    private val qualityRegex = Regex("""\[([^\]]+)\](.+?)(?=,\[|$)""")
 
     data class EpisodeEntry(val name: String, val id: String)
     data class StreamEntry(val label: String, val quality: Int, val url: String)
@@ -42,6 +42,6 @@ internal object AnimeVostParser {
     }
 
     fun cleanTitle(value: String): String = value
-        .replace(Regex("""\s*\[[^]]+\s+из\s+[^]]+]\s*$""", RegexOption.IGNORE_CASE), "")
+        .replace(Regex("""\s*\[[^\]]+\s+из\s+[^\]]+\]\s*$""", RegexOption.IGNORE_CASE), "")
         .trim()
 }
